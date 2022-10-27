@@ -1,5 +1,5 @@
 from tkinter import *
-from EEGDataPrep.helpers.helpers import play
+from EEGDataPrep.dataprep.dataprep import hello
 
 
 class MyWindow:
