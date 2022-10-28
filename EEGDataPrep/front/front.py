@@ -41,7 +41,7 @@ class MyWindow:
             print(self.selectedFile)
 
     def create_plot(self):
-        test(self.selectedFile)
+        plot_raw(self.selectedFile)
 
     def process_data(self):
-        messagebox.showinfo("Process Data", "Process Data")
+        process_eeg(self.selectedFile)
