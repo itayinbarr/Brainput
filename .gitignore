@@ -1,5 +1,8 @@
 .idea/
 
+# data
+data
+
 # dotenv
 .env
 
