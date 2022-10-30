@@ -15,9 +15,11 @@ class MyWindow:
         # Buttons
         self.btnOpenFile = Button(win, text='Load File', command=self.select_file)
         self.btnLeft = Button(win, text='Create plot', command=self.create_plot)
-        self.btnRight = Button(win, text='Process file', command=self.process_data)
+        self.btnStep1 = Button(win, text='Step One', command=self.first_step)
+        self.btnStep2 = Button(win, text='Step Two', command=self.second_step)
         # EEG file loaded by user
         self.selectedFile = "No file loaded"
+        self.midProcess = mne.create_info(4, sfreq=40)
         # Placing the objects
         # Labels
         self.lblTitle.place(x=150, y=70)
@@ -27,7 +29,8 @@ class MyWindow:
         # Buttons
         self.btnOpenFile.place(x=210, y=140)
         self.btnLeft.place(x=100, y=220)
-        self.btnRight.place(x=295, y=220)
+        self.btnStep1.place(x=295, y=220)
+        self.btnStep2.place(x=295, y=260)
 
     def select_file(self):
         filetypes = (
@@ -38,10 +41,15 @@ class MyWindow:
         if not self.selectedFile:
             messagebox.showerror("Bad File Loaded", "Bad File. Load Again")
         if self.selectedFile:
-            print(self.selectedFile)
+            print(self.selectedFile, "selected successfully, Click Step One to proceed with processing")
 
     def create_plot(self):
         plot_raw(self.selectedFile)
 
-    def process_data(self):
-        process_eeg(self.selectedFile)
+    def first_step(self):
+        self.midProcess = step1(self.selectedFile)
+
+    def second_step(self):
+        step2(self.midProcess, self.selectedFile)
+
+
