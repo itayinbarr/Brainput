@@ -10,11 +10,14 @@ class MyWindow:
         # Labels
         self.lblTitle = Label(win, font="Helvetica 16 bold", text='EEG Raw data Processor')
         self.lblSubtitle = Label(win, text='Choose your EEG data')
-        self.lblBtnLeft = Label(win, font="Helvetica 14 bold", text='Create plot from file')
+        self.lblBtnLeft = Label(win, font="Helvetica 14 bold", text='Create plots from file')
         self.lblBtnRight = Label(win, font="Helvetica 14 bold", text='Process Your File')
+        self.lblStep1 = Label(win, text='Bandpass, re-referencing & Channel inspection')
+        self.lblStep2 = Label(win, text='Removing bad channels, epoching & Inspecting epochs')
+        self.lblStep3 = Label(win, text='ICA & Save processed file')
         # Buttons
         self.btnOpenFile = Button(win, text='Load File', command=self.select_file)
-        self.btnLeft = Button(win, text='Create plot', command=self.create_plot)
+        self.btnRawPlot = Button(win, text='Create plot', command=self.create_plot)
         self.btnStep1 = Button(win, text='Step One', command=self.first_step)
         self.btnStep2 = Button(win, text='Step Two', command=self.second_step)
         # EEG file loaded by user
@@ -22,15 +25,18 @@ class MyWindow:
         self.midProcess = mne.create_info(4, sfreq=40)
         # Placing the objects
         # Labels
-        self.lblTitle.place(x=150, y=70)
-        self.lblSubtitle.place(x=175, y=110)
-        self.lblBtnLeft.place(x=70, y=180)
-        self.lblBtnRight.place(x=270, y=180)
+        self.lblTitle.place(x=20, y=50)
+        self.lblSubtitle.place(x=20, y=90)
+        self.lblBtnLeft.place(x=20, y=140)
+        self.lblBtnRight.place(x=190, y=140)
+        self.lblStep1.place(x=250, y=180)
+        self.lblStep2.place(x=250, y=220)
+        self.lblStep3.place(x=250, y=260)
         # Buttons
-        self.btnOpenFile.place(x=210, y=140)
-        self.btnLeft.place(x=100, y=220)
-        self.btnStep1.place(x=295, y=220)
-        self.btnStep2.place(x=295, y=260)
+        self.btnOpenFile.place(x=170, y=90)
+        self.btnRawPlot.place(x=20, y=180)
+        self.btnStep1.place(x=190, y=180)
+        self.btnStep2.place(x=190, y=220)
 
     def select_file(self):
         filetypes = (
@@ -41,7 +47,9 @@ class MyWindow:
         if not self.selectedFile:
             messagebox.showerror("Bad File Loaded", "Bad File. Load Again")
         if self.selectedFile:
-            print(self.selectedFile, "selected successfully, Click Step One to proceed with processing")
+            print("---------------------------------")
+            print(f"{self.selectedFile.rsplit('/', 1)[-1].split('.')[0]}", "selected successfully, click "
+                                                                           "Step One to proceed with processing")
 
     def create_plot(self):
         plot_raw(self.selectedFile)
@@ -51,5 +59,3 @@ class MyWindow:
 
     def second_step(self):
         step2(self.midProcess, self.selectedFile)
-
-
