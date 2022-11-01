@@ -8,7 +8,7 @@ class MyWindow:
     def __init__(self, win):
         # Creating the visuals
         # Labels
-        self.lblTitle = Label(win, font="Helvetica 16 bold", text='EEG Raw data Processor')
+        self.lblTitle = Label(win, font="Helvetica 16 bold", text='BRAINPUT - EEG Raw data Processor')
         self.lblSubtitle = Label(win, text='Choose your EEG data')
         self.lblBtnLeft = Label(win, font="Helvetica 14 bold", text='Create plots from file')
         self.lblBtnRight = Label(win, font="Helvetica 14 bold", text='Process Your File')

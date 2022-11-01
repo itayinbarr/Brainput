@@ -1,7 +1,7 @@
 import os
 
 import mne
-from mne.preprocessing import ICA, create_eog_epochs, create_ecg_epochs
+from mne.preprocessing import ICA
 
 # Plotting functions
 # ---------------------------
@@ -17,6 +17,7 @@ def plot_raw(file):
 def plot_processed_file(file):
     data = mne.read_epochs(file, preload=True)
     data.plot()
+
 
 # Step One functions
 # ---------------------------
@@ -72,7 +73,7 @@ def inspect_bads(raw):
         print("No bad channels picked")
 
 
-# Ephoching & inspect ephochs function
+# Ephoching & inspect epochs function
 def epoching(raw, reject):
     events = mne.make_fixed_length_events(raw, start=5, duration=2.5)
     if reject:
