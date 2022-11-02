@@ -4,9 +4,14 @@ from tkinter import messagebox
 from EEGDataPrep.dataprep.dataprep import *
 
 
+# Class of software window
+# We can create as many windows as we wish
+# You can create instances through runner.py
+# ---------------------------
 class MyWindow:
     def __init__(self, win):
         # Creating the visuals
+        # ---------------------------
         # Labels
         self.lblTitle = Label(win, font="Helvetica 16 bold", text='BRAINPUT - EEG Raw data Processor')
         self.lblSubtitle = Label(win, text='Choose your EEG data')
@@ -23,11 +28,13 @@ class MyWindow:
         self.btnStep2 = Button(win, text='Step Two', command=self.second_step)
         self.btnStep3 = Button(win, text='Save Epochs', command=self.save_epochs)
         # EEG file loaded by user
+        # ---------------------------
         self.selectedFile = "No file loaded"
         self.midProcess = mne.create_info(4, sfreq=40)
         self.processed_epochs = mne.create_info(4, sfreq=40)
         self.savedFileName = "Untitled"
         # Placing the objects
+        # ---------------------------
         # Labels
         self.lblTitle.place(x=20, y=50)
         self.lblSubtitle.place(x=20, y=90)
@@ -46,6 +53,7 @@ class MyWindow:
 
     # Triggered when Load File is pressed
     def select_file(self):
+        # All file types working with the software
         filetypes = (
             ('set files', '*.set'),
             ('BrainVision files', '*.vhdr'),
@@ -73,8 +81,10 @@ class MyWindow:
         )
         self.selectedFile = askopenfilename(filetypes=filetypes, title='Open a file')
         if not self.selectedFile:
+            # Error catcher
             messagebox.showerror("Bad File Loaded", "Bad File. Load Again")
         if self.selectedFile:
+            # Printing to console that the file is successfully loaded to the software
             print("---------------------------------")
             print(f"{self.selectedFile.rsplit('/', 1)[-1].split('.')[0]}", "selected successfully, click "
                                                                            "Step One to proceed with processing")
