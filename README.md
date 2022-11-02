@@ -6,7 +6,7 @@ MNE Python based software, for automated EEG data preprocessing.
 Getting Started
 ------------
 
-We recommend to store the raw data files in
+I recommend storing the raw data files in
 
 `./data/raw`
 
@@ -22,16 +22,12 @@ For plotting the raw data, press the Plot Raw button.
 For starting to preprocess the file, press Step One. After it finishes, it loads a plot for you to choose bad channels 
 to remove. After clicking on the bad channels, close the plot window and press Step Two.
 
-After pressing step two and the software finishes processing, it loads a plot of the processed epochs to choose manually if we see a bad epoch.
+After pressing step two and the software finishes processing, it loads a plot of the processed epochs to choose 
+manually if we see a bad epoch.
 
 When finished, press Save Epochs. You can access the preprocessed file in:  
 
-`data/preprocessed`
-
-Dependencies
-------------
-
-We recommend to store the raw data files in
+`./data/preprocessed`
 
 Project Organization
 ------------
@@ -42,9 +38,6 @@ Project Organization
     ├── data                         <- Data directories, containing both raw and preprocessed (recommended to store here)
     │   ├── processed                <- Preprocessed files directory
     │   └── raw                      <- Raw files directory
-    │
-    ├── docs                         <- Docomentation folder - for elaborated explaining.
-    │   └── DOCS.md                  <- Docs file
     │
     ├── EEGDataPrep                  <- Containing the software itself
     │   ├── dataprep                 <- Directory of all functions of the software
@@ -59,5 +52,11 @@ Project Organization
     └── tests                        <- Tests directory
         └── backend_tests.py         <- Unit tests of backend
  
+Dependencies
+------------
 
+- Python
+- MNE Python
+- TKInter
+- unittest
 --------
