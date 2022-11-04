@@ -5,8 +5,11 @@ from tkinter import *
 # ---------------------------
 
 # Introduction
+print("***************************")
+print("***************************")
+print("***************************")
 print("Welcome to BRAINPUT - MNE Python based software, for automated EEG data preprocessing.")
-print("### ---------------------------###")
+print("---------------------------")
 print("I recommend storing the raw data files in data/files")
 print("---------------------------")
 
@@ -16,7 +19,7 @@ numberOfWindows = int(input())
 for i in range(numberOfWindows):
     window = Tk()
     mywin = MyWindow(window)
-    window.title('BRAINPUT')
+    window.title('BRAINPUT Machine')
     window.geometry("600x350")
 
 window.mainloop()

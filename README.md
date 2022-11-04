@@ -58,5 +58,4 @@ Dependencies
 - Python
 - MNE Python
 - TKInter
-- unittest
 --------

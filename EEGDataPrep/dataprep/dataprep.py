@@ -1,5 +1,4 @@
 import os
-
 import mne
 from mne.preprocessing import ICA
 
