@@ -15,14 +15,15 @@ to the EEG data.
 From within the repo directory run
 
 Features
----
+--
 - GUI made to minimize using code through the whole preprocessing process.
 - Plot the raw data before analysis, as well in the end of the process.
 - Remove artifacts using ICA analysis, FIR, bandpass filters, Epoching.
 - Inspecting bad channels and epochs throughout the process.
 - Saving the preprocessed file.
 
-###GUI
+GUI
+--
 Simplified, single page. Built using TKInter library, which is prebuilt with Python, hence a solid dependency.
 
 It will contain:
@@ -34,13 +35,15 @@ It will contain:
 - Step1, step2 & save buttons
 - Labels explaining the steps throughout the preprocessing
 
-###Plots
+Plots
+---
 Aside from the plots which appear twice throughout the process in order to 
 manually inspect the channels and epochs, the user can generate plots of the data.
 - Plotting the raw data
 - Plotting the preprocessed data
 
-### Artifact analysis
+Artifact analysis
+---
 The methods and functions used in the process are based on MNE-python library, which is open-source
 and contains extremely useful pretrained models and tools.
 
