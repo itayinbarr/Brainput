@@ -3,6 +3,9 @@ BRAINPUT
 
 MNE Python based software, for automated EEG data preprocessing.
 
+#### For app requirements document, see REQUIREMENTS.md
+
+
 This project is a tool made to simplify data preprocessing.
 It was created to minimize the need to work with code in order to preprocess data in the future.
 
